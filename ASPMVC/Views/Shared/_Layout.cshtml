@@ -27,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-area="" asp-controller="BookAuthor" asp-action="Index">BookAuthor</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Administration" asp-action="ListRoles">Manage roles</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav">
                     @if (SignInManager.IsSignedIn(User))

@@ -68,7 +68,7 @@ namespace ASPMVC.Controllers
                     if(!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                         return Redirect(returnUrl);
 
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("ListRoles", "Administration");
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid login attempt!");
