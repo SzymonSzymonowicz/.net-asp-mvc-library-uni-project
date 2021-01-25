@@ -22,6 +22,9 @@ namespace ASPMVC.Validators
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
+            if(value == null)
+                return new ValidationResult("PESEL cant be empty!");
+
             string pesel = value.ToString();
 
             if (!decimal.TryParse(pesel, out decimal result_status))

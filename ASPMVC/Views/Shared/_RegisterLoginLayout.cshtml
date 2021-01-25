@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "_LayoutWrapper";
+}
+
+@section Css
+{
+    <link href="@Url.Content("~/css/register_login_style.css")" rel="stylesheet" />
+}
+
+
+<div class="py-5 h-100 row align-items-center mx-auto my-auto text-center" style="width: 400px;">
+        <div class="col card" style="background:#c9c4c3">
+            <div class="card-body p-3">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

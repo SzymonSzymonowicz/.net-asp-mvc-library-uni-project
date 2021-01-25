@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using ASPMVC.Validators;
+using Microsoft.AspNetCore.Identity;
 
 namespace ASPMVC.Models
 {
