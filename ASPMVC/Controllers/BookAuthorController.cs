@@ -51,8 +51,8 @@ namespace ASPMVC.Controllers
         // GET: BookAuthor/Create
         public IActionResult Create()
         {
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "Id", "FirstName");
-            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Genre");
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "Id", "Id");
+            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Id");
             return View();
         }
 

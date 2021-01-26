@@ -25,6 +25,7 @@ namespace ASPMVC.Models
         [StringLength(50, MinimumLength = 6)]
         public string Username { get; set; }
         [Required]
+        [DataType(DataType.Password)]
         [StringLength(50, MinimumLength = 8)]
         public string Password { get; set; }
         [Required]
