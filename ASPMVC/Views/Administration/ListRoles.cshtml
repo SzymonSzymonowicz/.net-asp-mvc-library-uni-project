@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "All Roles";
+    Layout = "_Layout";
 }
 
 <h1>All Roles</h1>
@@ -23,12 +24,11 @@
                 <h5 class="card-title">@role.Name</h5>
             </div>
             <div class="card-footer">
-                <form method="post" asp-controller="Administration"
-                      asp-action="DeleteRole" asp-route-id="@role.Id">
+                <form asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
                     <a class="btn btn-primary" asp-controller="Administration"
                        asp-action="EditRole" asp-route-id="@role.Id">Edit</a>
 
-                    <buttton type="submit" class="btn btn-danger text-white">Delete</buttton>
+                    <input value="Delete "type="submit" class="btn btn-danger text-white"/>
                 </form>
             </div>
         </div>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ASPMVC.Models.Book>
+
+@{
+    ViewData["Title"] = "My Books";
+    var displayMine = (bool?)@ViewData["DisplayMine"];
+}
+
+<table class="table" id="myBooksList">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublicationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISBN)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublicationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISBN)
+                </td>
+                <td>
+                    @if (displayMine != null)
+                    {
+                        @if (displayMine == true)
+                        {
+                            <a class="btn btn-primary text-white" onclick="returnBook(@item.Id)">Return Book</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-success text-white" onclick="borrowBook(@item.Id)">Borrow</a>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

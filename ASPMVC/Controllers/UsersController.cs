@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ASPMVC.Data;
 using ASPMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASPMVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class UsersController : Controller
     {
         private readonly ApplicationDbContext _context;

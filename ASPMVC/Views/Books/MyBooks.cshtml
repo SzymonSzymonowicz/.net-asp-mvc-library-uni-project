@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ASPMVC.Models.Book>
+
+@{
+    ViewData["Title"] = "My Books";
+    var displayMine = (bool?) @ViewData["DisplayMine"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    // if (displayMine == null)
+    // {
+    //     Layout = "~/Views/Shared/_Layout.cshtml";
+    // }
+    // else
+    // {
+    //     Layout = null;
+    // }
+}
+
+@if (displayMine != null)
+{
+    @if (displayMine == true)
+    {
+        <h1>My Books</h1>
+    }
+    else
+    {
+        <h1>Available books</h1>
+    }
+}
+
+
+<div id="myBooksList">
+    @await Html.PartialAsync("BooksPartial", Model)
+</div>
+
+<script>
+    function returnBook(id) {
+        var url = "/books/returnbook";
+        $.post(url, { id: id })
+            .done(function(response) {
+                $("#myBooksList").html(response);
+            });
+    }
+
+    function borrowBook(id) {
+        var url = "/books/borrowbook";
+        $.post(url, { id: id })
+            .done(function(response) {
+                $("#myBooksList").html(response);
+            });
+    }
+</script>

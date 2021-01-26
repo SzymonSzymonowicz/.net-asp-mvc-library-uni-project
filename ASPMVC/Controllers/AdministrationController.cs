@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASPMVC.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASPMVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;
@@ -114,7 +116,7 @@ namespace ASPMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteRole(string? id)
+        public async Task<IActionResult> DeleteRole(string id)
         {
             if (id == null)
             {
